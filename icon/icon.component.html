@@ -1,0 +1,384 @@
+<!-- Use img tag with data URI src by default -->
+<img
+  *ngIf="!useInlineSVG"
+  (mouseenter)='updateImage()' 
+  (mouseleave)='updateImage()' 
+  class="icon-container"
+  [ngClass]="{
+    'icon-container--no-color': noColor,
+    'icon-container--filter-active': name === 'filter-active',
+    'chevron--right': name === 'chevron-right',
+    'chevron--down': name === 'chevron-down',
+    'chevron--left': name === 'chevron-left',
+    'chevron-circle--up': name === 'chevron-circle-up',
+    'chevron-circle--down': name === 'chevron-circle-down',
+    'chevron-circle--left': name === 'chevron-circle-left'
+  }"
+  height="100%" 
+  width="100%" 
+  [src]="src"
+>
+
+<!-- Or Use inline SVGs so we can apply classes and change the colors dynamically using color CSS variables -->
+<svg *ngIf="name === 'download'" #icon id="download-icon-midnight" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 11.75 16">
+  <g id="Group_13243" data-name="Group 13243" transform="translate(0 0)">
+    <path class="color-icon-fill-primary" id="Path_5537" data-name="Path 5537" d="M17.8,10.45A.976.976,0,1,0,16.3,9.2l-3.25,3.75V4.2H11.175v8.625l-3.25-3.75a.832.832,0,0,0-1.25,0,.891.891,0,0,0-.375.75.955.955,0,0,0,.25.625l5.625,6.5Z" transform="translate(-6.3 -4.2)"/>
+    <rect class="color-icon-fill-primary" id="Rectangle_1399" data-name="Rectangle 1399" width="11.75" height="1.875" transform="translate(0 14.125)"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'edit'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16">
+  <path class="color-icon-fill-primary" id="Path_8374" data-name="Path 8374" d="M138,66l-8,8-2,6,6-2,8-8Zm6,.85A2.838,2.838,0,0,0,139,65h0l4,4A2.921,2.921,0,0,0,144,66.85ZM135,79Z" transform="translate(-128 -64)"/>
+</svg>
+<svg *ngIf="name === 'video'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 12">
+  <path id="Video" d="M15.35.5A56,56,0,0,0,8,0,56,56,0,0,0,.65.5,24.03,24.03,0,0,0,0,6a24.03,24.03,0,0,0,.65,5.5A55.4,55.4,0,0,0,8,12a56,56,0,0,0,7.35-.5A21.543,21.543,0,0,0,16,6,24.03,24.03,0,0,0,15.35.5ZM6,9V3l5,3Z" class="color-icon-fill-primary"/>
+</svg>
+<svg *ngIf="name === 'info-circle'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16">
+  <g id="Group_21427" data-name="Group 21427" transform="translate(-9501 2574)">
+    <g id="Rectangle_5029" data-name="Rectangle 5029" transform="translate(9501 -2574)" class="color-icon-fill-primary color-icon-stroke-primary" stroke-width="1">
+      <rect width="16" height="16" rx="8" stroke="none"/>
+      <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" fill="none"/>
+    </g>
+    <rect id="Rectangle_8448" data-name="Rectangle 8448" width="2" height="5" rx="1" transform="translate(9508 -2567)" class="color-icon-fill-secondary"/>
+    <rect id="Rectangle_8449" data-name="Rectangle 8449" width="2" height="2" rx="1" transform="translate(9508 -2570)" class="color-icon-fill-secondary"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'exclamation-circle'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16">
+  <g id="Group_21774" data-name="Group 21774" transform="translate(9517 -2558) rotate(180)">
+    <g id="Path_8462" data-name="Path 8462" transform="translate(9501 -2574)" class="color-icon-fill-primary">
+      <path d="M 8 15.5 C 3.864490032196045 15.5 0.5 12.13551044464111 0.5 8 C 0.5 3.864490032196045 3.864490032196045 0.5 8 0.5 C 12.13551044464111 0.5 15.5 3.864490032196045 15.5 8 C 15.5 12.13551044464111 12.13551044464111 15.5 8 15.5 Z" stroke="none"/>
+      <path d="M 8 1 C 4.140190124511719 1 1 4.140190124511719 1 8 C 1 11.85980987548828 4.140190124511719 15 8 15 C 11.85980987548828 15 15 11.85980987548828 15 8 C 15 4.140190124511719 11.85980987548828 1 8 1 M 8 0 C 12.41827964782715 0 16 3.581720352172852 16 8 C 16 12.41827964782715 12.41827964782715 16 8 16 C 3.581720352172852 16 0 12.41827964782715 0 8 C 0 3.581720352172852 3.581720352172852 0 8 0 Z" stroke="none" class="color-icon-fill-primary"/>
+    </g>
+    <path id="Line_640" data-name="Line 640" d="M0,4A1,1,0,0,1-1,3V0A1,1,0,0,1,0-1,1,1,0,0,1,1,0V3A1,1,0,0,1,0,4Z" transform="translate(9509 -2566)" class="color-icon-fill-secondary"/>
+    <path id="Line_641" data-name="Line 641" transform="translate(9509 -2569)" class="color-icon-fill-secondary"/>
+    <circle id="Ellipse_523" data-name="Ellipse 523" cx="1.022" cy="1.022" r="1.022" transform="translate(9507.956 -2570.263)" class="color-icon-fill-secondary"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'png'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 18.26">
+  <g id="PNG" transform="translate(-772 -4680.948)">
+    <path id="Path_8378" data-name="Path 8378" d="M2.623,5.8,12.175,5.8l1.323.553,3.517,3.817v12.44l-.783.658-13.61-.227-1.063-.992.395-15.7Z" transform="translate(770.442 4675.388)" class="color-icon-fill-secondary"/>
+    <path class="color-icon-fill-primary" id="Path_7325" data-name="Path 7325" d="M1908.662,531.2l-2.565-2.565a4.017,4.017,0,0,0-2.443-1.038h-8.55a1.42,1.42,0,0,0-1.4,1.4v15.45a1.42,1.42,0,0,0,1.4,1.4H1908.3a1.421,1.421,0,0,0,1.4-1.4v-10.87A4.006,4.006,0,0,0,1908.662,531.2Zm-3.542-1.893.183.183,2.565,2.565.183.183h-2.931Zm3.419,15.206a.288.288,0,0,1-.305.305H1895.1a.289.289,0,0,1-.305-.305v-15.45a.288.288,0,0,1,.305-.305h8.916v4.58h4.58v11.176Z" transform="translate(-1121.7 4153.348)"/>
+    <path class="color-icon-fill-primary" id="Path_7326" data-name="Path 7326" d="M969.327,138.3c-.718,0-1.435.717-2.152.717s-.717-2.87-2.152-2.87-2.87,1.435-3.587,4.3h8.609S970.044,138.3,969.327,138.3ZM960,134v7.892h11.479V134Zm10.761,7.174H960.718v-6.457h10.044Zm-2.87-4.663a1.076,1.076,0,1,0,1.076-1.076A1.057,1.057,0,0,0,967.892,136.511Z" transform="translate(-185.496 4554.918)"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'minimize'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16">
+  <path class="color-icon-fill-primary" id="Full_screen_min" data-name="Full screen min" d="M583,1801v6.5l-2.5-2.5-3,3-1.5-1.5,3-3-2.5-2.5Zm9-7.5-3,3,2.5,2.5H585v-6.5l2.5,2.5,3-3Z" transform="translate(-576 -1792)"/>
+</svg>
+<svg *ngIf="name === 'expand'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 15.196">
+  <path class="color-icon-fill-primary" id="Full_screen_max" data-name="Full screen max" d="M16,0V6.173L13.5,3.8l-3,2.849L9,5.224l3-2.849L9.5,0ZM7,9.973,4,12.822,6.5,15.2H0V9.023L2.5,11.4l3-2.849Z"/>
+</svg>
+<svg *ngIf="name === 'print'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 15.156 16.3">
+  <g id="Group_21731" data-name="Group 21731" transform="translate(-274.801 -308.765)">
+    <g id="Group_21730" data-name="Group 21730" transform="translate(274.951 308.915)">
+      <path class="color-icon-fill-primary" id="Path_8458" data-name="Path 8458" d="M287.515,311.228h-.324V308.3a.382.382,0,0,0-.383-.383h-8.857a.382.382,0,0,0-.383.383h0v2.93h-.324a2.3,2.3,0,0,0-2.294,2.294v4.736a2.3,2.3,0,0,0,2.294,2.294h.324v2.981a.382.382,0,0,0,.383.383h8.856a.382.382,0,0,0,.383-.383h0v-2.981h.324a2.3,2.3,0,0,0,2.294-2.294v-4.736A2.3,2.3,0,0,0,287.515,311.228Zm-9.181-2.549h8.092v2.549h-8.092Zm8.092,14.471h-8.092v-4.714h8.092Zm2.617-4.893a1.531,1.531,0,0,1-1.529,1.529h-.324v-1.351h.827a.383.383,0,0,0,0-.764H276.855a.383.383,0,0,0-.039.764.249.249,0,0,0,.039,0h.713v1.351h-.324a1.531,1.531,0,0,1-1.529-1.529v-4.735a1.531,1.531,0,0,1,1.529-1.532h10.27a1.531,1.531,0,0,1,1.529,1.529v4.736h0Z" transform="translate(-274.951 -307.915)"/>
+      <path class="color-icon-fill-primary" id="Path_8458_-_Outline" data-name="Path 8458 - Outline" d="M277.951,307.765h8.857a.533.533,0,0,1,.533.533v2.78h.174a2.451,2.451,0,0,1,2.443,2.443v4.736a2.452,2.452,0,0,1-2.443,2.444h-.174v2.831a.533.533,0,0,1-.533.533h-8.856a.533.533,0,0,1-.533-.533V320.7h-.174a2.452,2.452,0,0,1-2.444-2.443v-4.736a2.452,2.452,0,0,1,2.443-2.444h.174V308.3A.533.533,0,0,1,277.951,307.765Zm9.563,12.636a2.151,2.151,0,0,0,2.144-2.144v-4.736a2.151,2.151,0,0,0-2.143-2.144h-.474V308.3a.233.233,0,0,0-.233-.233h-8.857a.233.233,0,0,0-.233.233v3.08h-.474a2.151,2.151,0,0,0-2.144,2.144v4.736a2.151,2.151,0,0,0,2.144,2.144h.474v3.131a.233.233,0,0,0,.233.233h8.856a.233.233,0,0,0,.233-.233V320.4Zm-9.33-11.872h8.392v2.849h-8.392Zm8.092.3h-7.792v2.249h7.792Zm-9.031,3.01h10.27a1.684,1.684,0,0,1,1.679,1.679v4.775a1.684,1.684,0,0,1-1.679,1.643h-.474v-1.651h.972a.233.233,0,0,0,0-.464H276.847a.233.233,0,0,0-.244.221.232.232,0,0,0,.221.244h.894v1.651h-.474a1.684,1.684,0,0,1-1.679-1.679v-4.735a1.681,1.681,0,0,1,1.679-1.682Zm11.65,6.38v-4.7a1.383,1.383,0,0,0-1.38-1.379h-10.27a1.381,1.381,0,0,0-1.379,1.382v4.735a1.383,1.383,0,0,0,1.38,1.379h.174v-1.051h-.558a.394.394,0,0,1-.056,0,.533.533,0,0,1,.054-1.064h11.166a.533.533,0,0,1,0,1.064h-.685v1.051h.174a1.383,1.383,0,0,0,1.38-1.38Zm-10.71.067h8.392V323.3h-8.392Zm8.092.3h-7.792V323h7.792Z" transform="translate(-274.951 -307.915)"/>
+      <path class="color-icon-fill-primary" id="Path_8459" data-name="Path 8459" d="M286.88,313.552a.522.522,0,1,0,.522.522h0A.522.522,0,0,0,286.88,313.552Z" transform="translate(-275.023 -307.95)"/>
+      <path class="color-icon-fill-primary" id="Path_8460" data-name="Path 8460" d="M279.25,319.827h6.3a.383.383,0,0,0,.039-.764h-6.347a.383.383,0,0,0-.039.764h.044Z" transform="translate(-274.975 -307.985)"/>
+      <path class="color-icon-fill-primary" id="Path_8461" data-name="Path 8461" d="M279.25,321.25h6.3a.383.383,0,0,0,.039-.764.249.249,0,0,0-.039,0h-6.308a.383.383,0,0,0-.039.764.249.249,0,0,0,.039,0Z" transform="translate(-274.975 -307.994)"/>
+    </g>
+  </g>
+</svg>
+<svg *ngIf="name === 'sort-alphabetical-ascending'" #icon xmlns="http://www.w3.org/2000/svg" class="color-icon-background-primary" width="100%" height="100%" viewBox="0 0 13.643 15">
+  <g id="Group_21470" data-name="Group 21470" transform="translate(0.387)">
+    <text id="A" transform="translate(8.022 6)" class="color-icon-fill-primary" font-size="7" font-family="Roboto" font-weight="700"><tspan x="0" y="0">A</tspan></text>
+    <text id="Z" transform="translate(8.256 13)" class="color-icon-fill-primary" font-size="7" font-family="Roboto" font-weight="700"><tspan x="0" y="0">Z</tspan></text>
+    <g id="Group_21469" data-name="Group 21469" transform="translate(20595.377 12255)">
+      <line id="Line_694" data-name="Line 694" y2="11" transform="translate(-20592.5 -12254.5)" fill="none" class="color-icon-stroke-primary" stroke-width="1"/>
+      <path id="Path_8387" data-name="Path 8387" d="M-20598.377-12234.15l2.873,3.484,2.873-3.484" transform="translate(3 -12)" fill="none" class="color-icon-stroke-primary" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
+<svg *ngIf="name === 'sort-alphabetical-descending'" #icon xmlns="http://www.w3.org/2000/svg" class="color-icon-background-primary" width="100%" height="100%" viewBox="0 0 13.643 15">
+  <g id="Group_21474" data-name="Group 21474" transform="translate(20595.764 12257)">
+    <text id="A" transform="translate(-20587.355 -12244)" class="color-icon-fill-primary" font-size="7" font-family="Roboto" font-weight="700"><tspan x="0" y="0">A</tspan></text>
+    <text id="Z" transform="translate(-20587.121 -12251)" class="color-icon-fill-primary" font-size="7" font-family="Roboto" font-weight="700"><tspan x="0" y="0">Z</tspan></text>
+    <g id="Group_21473" data-name="Group 21473" transform="translate(0 -2)">
+      <line id="Line_696" data-name="Line 696" y2="11" transform="translate(-20592.5 -12254.5)" fill="none" class="color-icon-stroke-primary" stroke-width="1"/>
+      <path id="Path_8389" data-name="Path 8389" d="M-20598.377-12234.15l2.873,3.484,2.873-3.484" transform="translate(3 -12)" fill="none" class="color-icon-stroke-primary" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
+<svg *ngIf="name === 'sort-alphabetical-unsorted'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 13.643 15">
+  <g id="Group_21470" data-name="Group 21470" transform="translate(0.387)">
+    <text id="A" transform="translate(8.022 6)" class="color-icon-fill-primary" font-size="7" font-family="Roboto" font-weight="700"><tspan x="0" y="0">A</tspan></text>
+    <text id="Z" transform="translate(8.256 13)" class="color-icon-fill-primary" font-size="7" font-family="Roboto" font-weight="700"><tspan x="0" y="0">Z</tspan></text>
+    <g id="Group_21469" data-name="Group 21469" transform="translate(20595.377 12255)">
+      <line id="Line_694" data-name="Line 694" y2="11" transform="translate(-20592.5 -12254.5)" fill="none" class="color-icon-stroke-primary" stroke-width="1"/>
+      <path id="Path_8387" data-name="Path 8387" d="M-20598.377-12234.15l2.873,3.484,2.873-3.484" transform="translate(3 -12)" fill="none" class="color-icon-stroke-primary" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
+<svg *ngIf="name === 'sort-numerical-ascending'" #icon xmlns="http://www.w3.org/2000/svg" class="color-icon-background-primary" width="100%" height="100%" viewBox="0 0 13.756 15">
+  <g id="Group_21472" data-name="Group 21472" transform="translate(20595.764 12257)">
+    <text id="_1" data-name="1" transform="translate(-20587.008 -12251)" class="color-icon-fill-primary" font-size="7" font-family="Roboto" font-weight="700"><tspan x="0" y="0">1</tspan></text>
+    <text id="_9" data-name="9" transform="translate(-20587.008 -12244)" class="color-icon-fill-primary" font-size="7" font-family="Roboto" font-weight="700"><tspan x="0" y="0">9</tspan></text>
+    <g id="Group_21471" data-name="Group 21471" transform="translate(0 -2)">
+      <line id="Line_695" data-name="Line 695" y2="11" transform="translate(-20592.5 -12254.5)" fill="none" class="color-icon-stroke-primary" stroke-width="1"/>
+      <path id="Path_8388" data-name="Path 8388" d="M-20598.377-12234.15l2.873,3.484,2.873-3.484" transform="translate(3 -12)" fill="none" class="color-icon-stroke-primary" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
+<svg *ngIf="name === 'sort-numerical-descending'" #icon xmlns="http://www.w3.org/2000/svg" class="color-icon-background-primary" width="100%" height="100%" viewBox="0 0 13.756 15">
+  <g id="Group_21476" data-name="Group 21476" transform="translate(20595.764 12257)">
+    <text id="_1" data-name="1" transform="translate(-20587.008 -12244)" class="color-icon-fill-primary" font-size="7" font-family="Roboto" font-weight="700"><tspan x="0" y="0">1</tspan></text>
+    <text id="_9" data-name="9" transform="translate(-20587.008 -12251)" class="color-icon-fill-primary" font-size="7" font-family="Roboto" font-weight="700"><tspan x="0" y="0">9</tspan></text>
+    <g id="Group_21475" data-name="Group 21475" transform="translate(0 -2)">
+      <line id="Line_697" data-name="Line 697" y2="11" transform="translate(-20592.5 -12254.5)" fill="none" class="color-icon-stroke-primary" stroke-width="1"/>
+      <path id="Path_8390" data-name="Path 8390" d="M-20598.377-12234.15l2.873,3.484,2.873-3.484" transform="translate(3 -12)" fill="none" class="color-icon-stroke-primary" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
+<svg *ngIf="name === 'sort-numerical-unsorted'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 13.756 15">
+  <g id="Group_21472" data-name="Group 21472" transform="translate(20595.764 12257)">
+    <text id="_1" data-name="1" transform="translate(-20587.008 -12251)" class="color-icon-fill-primary" font-size="7" font-family="Roboto" font-weight="700"><tspan x="0" y="0">1</tspan></text>
+    <text id="_9" data-name="9" transform="translate(-20587.008 -12244)" class="color-icon-fill-primary" font-size="7" font-family="Roboto" font-weight="700"><tspan x="0" y="0">9</tspan></text>
+    <g id="Group_21471" data-name="Group 21471" transform="translate(0 -2)">
+      <line id="Line_695" data-name="Line 695" y2="11" transform="translate(-20592.5 -12254.5)" fill="none" class="color-icon-stroke-primary" stroke-width="1"/>
+      <path id="Path_8388" data-name="Path 8388" d="M-20598.377-12234.15l2.873,3.484,2.873-3.484" transform="translate(3 -12)" fill="none" class="color-icon-stroke-primary" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
+<svg *ngIf="name === 'filter-inactive'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 18.414 13.141">
+  <path id="Path_8386" data-name="Path 8386" d="M318.793,4355.5h18.414l-6.707,6.707v5.184l-.379.094-4.621,1.156v-6.434Zm16,1H321.207l5.293,5.293v5.566l3-.75v-4.816Z" transform="translate(-318.793 -4355.5)" class="color-icon-fill-primary"/>
+</svg>
+<svg *ngIf="name === 'filter-active'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16.998 16.002">
+  <g id="Group_21477" data-name="Group 21477" transform="translate(-461.002 -2099)">
+    <path id="Subtraction_18" data-name="Subtraction 18" d="M18110,23036v-6l-6-6h9.5a3.508,3.508,0,0,0,3.031,3.467L18114,23030v5l-3.994,1Z" transform="translate(-17643 -20921)" class="color-icon-fill-primary"/>
+    <g id="Ellipse_482" data-name="Ellipse 482" transform="translate(470 2099)" class="color-icon-fill-primary" class="color-icon-stroke-secondary" stroke-width="1">
+      <circle cx="4" cy="4" r="4" class="color-icon-stroke-primary"/>
+      <circle cx="4" cy="4" r="3.5" class="color-icon-fill-primary" />
+    </g>
+  </g>
+</svg>
+<svg
+  class="chevron"
+  *ngIf="name === 'chevron-up' || name === 'chevron-down' || name === 'chevron-right' || name === 'chevron-left'" 
+  [ngClass]="{
+    'chevron--right': name === 'chevron-right',
+    'chevron--down': name === 'chevron-down',
+    'chevron--left': name === 'chevron-left'
+  }"
+  #icon 
+  xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 10 6.633">
+  <path id="Path_8367" data-name="Path 8367" d="M139.922,10.312a1,1,0,0,1-.757-.346l-4-4.633a1,1,0,0,1,1.514-1.307l3.243,3.756,3.243-3.756a1,1,0,1,1,1.514,1.307l-4,4.633A1,1,0,0,1,139.922,10.312Z" transform="translate(144.922 10.312) rotate(180)" class="color-icon-fill-primary"/>
+</svg>
+<svg *ngIf="name === 'question-circle'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16">
+  <g id="Group_21425" data-name="Group 21425" transform="translate(-9477 2574)">
+    <g id="Rectangle_4968" data-name="Rectangle 4968" transform="translate(9477 -2574)" class="color-icon-fill-primary color-icon-stroke-primary" stroke-width="1">
+      <rect width="16" height="16" rx="8" stroke="none"/>
+      <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" fill="none"/>
+    </g>
+    <path id="Path_8255" data-name="Path 8255" d="M28.316,0a2.986,2.986,0,0,0-2.652,1.4.37.37,0,0,0,.08.507l.665.5a.37.37,0,0,0,.512-.064A1.5,1.5,0,0,1,28.2,1.587c.474,0,1.06.305,1.06.765,0,.348-.287.526-.755.788-.546.306-1.268.687-1.268,1.64v.151a.37.37,0,0,0,.37.37H28.72a.37.37,0,0,0,.37-.37V4.842c0-.66,1.93-.688,1.93-2.475A2.648,2.648,0,0,0,28.316,0Zm-.154,5.755a1.067,1.067,0,1,0,1.067,1.067A1.069,1.069,0,0,0,28.162,5.755Z" transform="translate(9456.691 -2569.944)" class="color-icon-fill-secondary"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'xls'" #icon id="XLS" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16.003 18.263">
+  <path id="Path_6248" data-name="Path 6248" d="M2.6,5.8,11.974,5.8l1.3.543,3.45,3.745v12.2l-.768.645L2.6,22.712l-1.043-.974.387-15.4Z" transform="translate(-1.341 -4.987)" class="color-icon-fill-secondary"/>
+  <g class="color-icon-fill-primary" id="Group_448" data-name="Group 448" transform="translate(0 0)">
+    <path id="Path_1739" data-name="Path 1739" d="M1738.125,531.2l-2.565-2.565a4.019,4.019,0,0,0-2.443-1.038H1724.5a1.421,1.421,0,0,0-1.4,1.4v15.453a1.421,1.421,0,0,0,1.4,1.4H1737.7a1.421,1.421,0,0,0,1.4-1.4V533.586A3.93,3.93,0,0,0,1738.125,531.2Zm-3.6-1.893.183.183,2.565,2.565.183.183h-2.932Zm3.42,15.209a.289.289,0,0,1-.305.305h-13.193a.288.288,0,0,1-.305-.305V529.066a.288.288,0,0,1,.305-.305h8.918v4.581h4.581v11.177Z" transform="translate(-1723.1 -527.6)"/>
+  </g>
+  <g class="color-icon-fill-primary" id="Group_449" data-name="Group 449" transform="translate(4.703 7.879)">
+    <path id="Path_1740" data-name="Path 1740" d="M1733.122,543.615l-2.138-3.115H1733l1.1,2.016,1.161-2.016h1.954l-2.138,3.115,2.321,3.42h-2.077l-1.222-2.2-1.344,2.2H1730.8Z" transform="translate(-1730.801 -540.5)"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'csv'" #icon id="Csv" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 18.259">
+  <path id="Path_8384" data-name="Path 8384" d="M2.6,5.8l9.37-.006,1.3.543,3.45,3.744v12.2l-.768.645L2.6,22.709l-1.043-.973.387-15.4Z" transform="translate(-1.341 -5.357)" class="color-icon-fill-secondary"/>
+  <g class="color-icon-fill-primary" id="Group_442" data-name="Group 442" transform="translate(0 0)">
+    <path id="Path_1736" data-name="Path 1736" d="M1874.662,531.2l-2.565-2.565a4.015,4.015,0,0,0-2.443-1.038H1861.1a1.421,1.421,0,0,0-1.4,1.4v15.45a1.42,1.42,0,0,0,1.4,1.4h13.19a1.42,1.42,0,0,0,1.4-1.4v-10.87A4.007,4.007,0,0,0,1874.662,531.2Zm-3.542-1.893.183.183,2.565,2.565.183.183h-2.931Zm3.42,15.206a.289.289,0,0,1-.306.305H1861.1a.289.289,0,0,1-.305-.305v-15.45a.289.289,0,0,1,.305-.305h8.916v4.58h4.58v11.175Z" transform="translate(-1859.7 -527.6)"/>
+  </g>
+  <g class="color-icon-fill-primary" id="Group_443" data-name="Group 443" transform="translate(3.237 8.794)">
+    <rect id="Rectangle_197" data-name="Rectangle 197" width="2.504" height="1.343"/>
+    <rect id="Rectangle_198" data-name="Rectangle 198" width="2.809" height="1.343" transform="translate(3.114)"/>
+    <rect id="Rectangle_199" data-name="Rectangle 199" width="2.504" height="1.343" transform="translate(0 2.443)"/>
+    <rect id="Rectangle_200" data-name="Rectangle 200" width="2.809" height="1.343" transform="translate(3.114 2.443)"/>
+    <rect id="Rectangle_201" data-name="Rectangle 201" width="2.687" height="1.343" transform="translate(6.595 2.443)"/>
+    <rect id="Rectangle_202" data-name="Rectangle 202" width="2.504" height="1.343" transform="translate(0 4.885)"/>
+    <rect id="Rectangle_203" data-name="Rectangle 203" width="2.809" height="1.343" transform="translate(3.114 4.885)"/>
+    <rect id="Rectangle_204" data-name="Rectangle 204" width="2.687" height="1.343" transform="translate(6.595 4.885)"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'bin-circle'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16">
+  <g id="Group_21820" data-name="Group 21820" transform="translate(-751 -5459)">
+    <circle id="Ellipse_527" data-name="Ellipse 527" cx="8" cy="8" r="8" transform="translate(751 5459)" class="color-icon-fill-primary"/>
+    <g id="delete-icon-midnight" transform="translate(756 5463.001)">
+      <path id="Path_5445" data-name="Path 5445" d="M309.8,13.218a1.025,1.025,0,0,0,1,1h3.011a1.025,1.025,0,0,0,1-1V8.2H309.8Z" transform="translate(-309.226 -6.193)" class="color-icon-fill-secondary"/>
+      <path id="Path_5446" data-name="Path 5446" d="M315.094,5.9h-1.506l-.5-.5h-2.007l-.574.5H309v.932h6.094Z" transform="translate(-309 -5.4)" class="color-icon-fill-secondary"/>
+    </g>
+  </g>
+</svg>
+<svg *ngIf="name === 'bin'" #icon id="delete-icon-midnight" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 12.143 16">
+  <path id="Path_5445" data-name="Path 5445" d="M309.8,18.2a2.043,2.043,0,0,0,2,2h6a2.043,2.043,0,0,0,2-2V8.2h-10Z" transform="translate(-308.657 -4.2)" class="color-icon-fill-primary"/>
+  <path id="Path_5446" data-name="Path 5446" d="M321.143,6.4h-3l-1-1h-4L312,6.4h-3V8.257h12.143Z" transform="translate(-309 -5.4)" class="color-icon-fill-primary"/>
+</svg>
+<svg *ngIf="name === 'pdf'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 36.937">
+  <g id="PDF" transform="translate(-490 -76.948)">
+    <path class="color-icon-fill-secondary" id="Path_8385" data-name="Path 8385" d="M3.761,5.811,23.539,5.8l2.739,1.145,7.282,7.9V40.6l-1.62,1.361L3.761,41.494l-2.2-2.055.818-32.5Z" transform="translate(488.441 71.922)"/>
+    <path class="color-icon-fill-primary color-icon-stroke-primary" id="Path_5641" data-name="Path 5641" d="M18.782,11.811a.749.749,0,0,0-.264-.441,4.436,4.436,0,0,0-2.468-.617c-.881,0-1.851.088-3,.176a7.988,7.988,0,0,1-1.41-.97A9.449,9.449,0,0,1,9.174,6.17c0-.176.088-.264.088-.353a22.909,22.909,0,0,0,.441-4.5A.53.53,0,0,0,9.615.97L9.527.793A.959.959,0,0,0,8.557,0H8.293A1.181,1.181,0,0,0,7.147.705c-.353,1.322,0,3.349.705,5.906l-.176.441C7.147,8.2,6.618,9.431,6.089,10.489L6,10.577C5.472,11.635,4.943,12.6,4.5,13.4l-.441.264L3,14.191c-1.675.97-2.732,2.115-2.909,3a.711.711,0,0,0,.264.793l.441.264a1.634,1.634,0,0,0,.617.176c1.146,0,2.556-1.41,4.407-4.672a36.912,36.912,0,0,1,6.7-1.587A12.3,12.3,0,0,0,17.46,13.75a1.307,1.307,0,0,0,.617-.088.809.809,0,0,0,.529-.353A2.829,2.829,0,0,0,18.782,11.811Zm-12.516.881c.264-.441.529-.97.793-1.5a27.527,27.527,0,0,0,1.41-3.085,9.582,9.582,0,0,0,2.38,2.909c.088.088.264.176.353.264A25.047,25.047,0,0,0,6.266,12.693Z" transform="translate(496.459 87.771)" stroke-width="0.5"/>
+    <path class="color-icon-fill-primary color-icon-stroke-primary" id="Path_7330" data-name="Path 7330" d="M1923.623,534.806l-5.13-5.13a8.035,8.035,0,0,0-4.885-2.076h-17.1a2.841,2.841,0,0,0-2.809,2.809v30.9a2.841,2.841,0,0,0,2.809,2.809h26.382a2.841,2.841,0,0,0,2.809-2.809v-21.74A8.011,8.011,0,0,0,1923.623,534.806Zm-7.084-3.786.366.366,5.13,5.13.367.366h-5.863Zm6.839,30.412a.577.577,0,0,1-.611.611h-26.26a.577.577,0,0,1-.611-.611v-30.9a.577.577,0,0,1,.611-.611h17.832v9.16h9.161v22.351Z" transform="translate(-1403.7 -450.652)"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'person-suit'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 18.485">
+  <path id="Ask_an_analyst" data-name="Ask an analyst" d="M584,1603.7a4.012,4.012,0,1,0,4-3.7A3.869,3.869,0,0,0,584,1603.7Zm9.333,4.929H592.6l-4.133,7.764,1.533-7.147-2-1.848-2,1.848,1.533,7.147-4.133-7.764h-.733c-2.667,0-2.667,1.664-2.667,3.7v6.162h16v-6.162C596,1610.29,596,1608.626,593.333,1608.626Z" transform="translate(-580 -1600)" class="color-icon-fill-primary"/>
+</svg>
+<svg *ngIf="name === 'cross'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 10.828 10.828">
+  <g id="Group_21454" data-name="Group 21454" transform="translate(16814.414 21446.914)">
+    <line id="Line_692" data-name="Line 692" x2="8" y2="8" transform="translate(-16813 -21445.5)" fill="none" class="color-icon-stroke-secondary" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_693" data-name="Line 693" x1="8" y2="8" transform="translate(-16813 -21445.5)" fill="none" class="color-icon-stroke-secondary" stroke-linecap="round" stroke-width="2"/>
+  </g>
+</svg>
+<svg 
+  class="chevron-circle"
+  *ngIf="name === 'chevron-circle-up' || name === 'chevron-circle-right' || name === 'chevron-circle-down' || name === 'chevron-circle-left'"
+  [ngClass]="{
+    'chevron--right': name === 'chevron-circle-right',
+    'chevron--down': name === 'chevron-circle-down',
+    'chevron--left': name === 'chevron-circle-left'
+  }"
+  #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16">
+  <g id="Group_21421" data-name="Group 21421" transform="translate(-9459 2574.081)">
+    <g class="color-icon-fill-secondary color-icon-stroke-primary" id="Ellipse_461" data-name="Ellipse 461" transform="translate(9459 -2558.081) rotate(-90)" stroke-width="1">
+      <circle cx="8" cy="8" r="8" stroke="none"/>
+      <circle cx="8" cy="8" r="7.5" fill="none"/>
+    </g>
+    <g id="Group_21252" data-name="Group 21252" transform="translate(9200.96 -2263.822) rotate(-90)">
+      <path class="color-icon-stroke-secondary" id="Path_8262" data-name="Path 8262" d="M1348.022,1473.326l3.3,3.3-3.3,3.3" transform="translate(1778.842 -1083.17) rotate(90)" fill="none" stroke-linecap="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
+<svg *ngIf="name === 'grid-view'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16">
+  <g id="grid_view" data-name="grid view" transform="translate(-1280 -780)">
+    <g class="color-icon-fill-primary" id="Group_18742" data-name="Group 18742">
+      <rect id="Rectangle_6013" data-name="Rectangle 6013" width="7" height="7" transform="translate(1280 789)"/>
+      <rect id="Rectangle_6012" data-name="Rectangle 6012" width="7" height="7" transform="translate(1289 789)"/>
+      <rect id="Rectangle_6014" data-name="Rectangle 6014" width="7" height="7" transform="translate(1280 780)"/>
+      <rect id="Rectangle_6015" data-name="Rectangle 6015" width="7" height="7" transform="translate(1289 780)"/>
+    </g>
+  </g>
+</svg>
+<svg *ngIf="name === 'list-view'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16">
+  <g id="list_view" data-name="list view" transform="translate(-270.238 -503.066)">
+    <g id="Group_18734" data-name="Group 18734" transform="translate(270.238 503.066)">
+      <g class="color-icon-fill-primary" id="Group_14836" data-name="Group 14836">
+        <rect id="Rectangle_54" data-name="Rectangle 54" width="10.777" height="3.314" transform="translate(5.224 0)"/>
+        <rect id="Rectangle_3574" data-name="Rectangle 3574" width="10.777" height="3.314" transform="translate(5.224 12.686)"/>
+        <rect id="Rectangle_3575" data-name="Rectangle 3575" width="10.777" height="3.314" transform="translate(5.224 6.4)"/>
+        <rect id="Rectangle_3576" data-name="Rectangle 3576" width="3.314" height="3.314" transform="translate(0 6.4)"/>
+        <rect id="Rectangle_3578" data-name="Rectangle 3578" width="3.314" height="3.314" transform="translate(0 12.686)"/>
+        <rect id="Rectangle_3577" data-name="Rectangle 3577" width="3.314" height="3.314" transform="translate(0 0)"/>
+      </g>
+    </g>
+  </g>
+</svg>
+<svg *ngIf="name === 'compass'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32">
+  <g id="Group_21827" data-name="Group 21827" transform="translate(16420 19875)">
+    <circle id="Ellipse_528" data-name="Ellipse 528" cx="16" cy="16" r="16" transform="translate(-16420 -19875)" class="color-icon-fill-secondary"/>
+    <path id="Ellipse_528_-_Outline" data-name="Ellipse 528 - Outline" d="M16,3A13,13,0,0,0,6.808,25.192,13,13,0,0,0,25.192,6.808,12.915,12.915,0,0,0,16,3m0-3A16,16,0,1,1,0,16,16,16,0,0,1,16,0Z" transform="translate(-16420 -19875)" class="color-icon-fill-primary"/>
+    <path id="Path_8474" data-name="Path 8474" d="M591,969l-9-5h-2v2l5,9,9,5h2v-2Zm-3,5a2,2,0,1,1,2-2A2.006,2.006,0,0,1,588,974Z" transform="translate(-16992 -20831)" class="color-icon-fill-primary"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'arrow-curve-right'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 26.972 32">
+  <path class="color-icon-fill-tertiary" id="Path_333" data-name="Path 333" d="M786,1287.8V1280l12,12-12,12v-7.9c-14-.3-13.4,9.5-9.8,15.9C767.4,1302.5,769.3,1287.3,786,1287.8Z" transform="translate(-771.028 -1280)"/>
+</svg>
+<svg *ngIf="name === 'add-folder'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 13.867">
+  <path class="color-icon-fill-primary" id="Path_8399" data-name="Path 8399" d="M2008.5,105.867h-6.72V103.2h-7.68v12.267a1.64,1.64,0,0,0,1.6,1.6h12.8a1.64,1.64,0,0,0,1.6-1.6v-8A1.512,1.512,0,0,0,2008.5,105.867Zm-.747,6.4h-2.346v2.347h-1.6v-2.347h-2.453v-1.6h2.347v-2.453h1.6v2.347h2.347v1.707h.107Z" transform="translate(-1994.1 -103.2)"/>
+</svg>
+<svg *ngIf="name === 'weight'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 15.335 16">
+  <g class="color-icon-fill-primary" id="Weights" transform="translate(-2298.774 -544.2)">
+    <path id="Path_1563" data-name="Path 1563" d="M2306.368,559.019H2299.4c-.444,0-.741-.3-.592-.9q.444-2.479.889-4.958c.3-1.352.445-2.7.741-4.207a4.214,4.214,0,0,0,.148-1.352c.148-.451.3-.6.592-.6H2311.7a.546.546,0,0,1,.592.6q.667,3.831,1.333,7.662.223,1.352.444,2.7c.149.6-.148.9-.74.9C2310.961,559.019,2308.59,559.019,2306.368,559.019Z" transform="translate(0 1.181)"/>
+    <path id="Path_1564" data-name="Path 1564" d="M2304.87,545.337A2.094,2.094,0,0,1,2307,547.47h1.138a3.217,3.217,0,0,0-3.27-3.27,3.4,3.4,0,0,0-3.27,3.27h1.138A2.093,2.093,0,0,1,2304.87,545.337Z" transform="translate(1.496 0)"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'folder'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 17 14.867">
+  <path id="Path_8373" data-name="Path 8373" d="M14.4,2.667H7.68V0H0V12.267a1.64,1.64,0,0,0,1.6,1.6H14.4a1.64,1.64,0,0,0,1.6-1.6v-8A1.512,1.512,0,0,0,14.4,2.667Z" transform="translate(0.5 0.5)" class="color-icon-fill-primary color-icon-stroke-primary" stroke-width="1"/>
+</svg>
+<svg *ngIf="name === 'subnational-circle'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16">
+  <g id="Subnational" transform="translate(-504.4 -1108.4)">
+    <g id="Ellipse_461" data-name="Ellipse 461" transform="translate(504.4 1108.4)" class="color-icon-fill-primary color-icon-stroke-primary" stroke-width="1">
+      <circle cx="8" cy="8" r="8" stroke="none"/>
+      <circle cx="8" cy="8" r="7.5" fill="none"/>
+    </g>
+    <path class="color-icon-fill-secondary" id="Path_8392" data-name="Path 8392" d="M3.742-4.174A.63.63,0,0,0,3.5-4.708,3.219,3.219,0,0,0,2.613-5.1,6.262,6.262,0,0,1,1.6-5.507,1.651,1.651,0,0,1,.588-6.984,1.438,1.438,0,0,1,.86-7.845a1.774,1.774,0,0,1,.781-.591,2.94,2.94,0,0,1,1.143-.213,2.676,2.676,0,0,1,1.137.231,1.81,1.81,0,0,1,.775.652,1.707,1.707,0,0,1,.276.957H3.746a.8.8,0,0,0-.258-.636,1.059,1.059,0,0,0-.724-.227,1.132,1.132,0,0,0-.7.19.6.6,0,0,0-.249.5.575.575,0,0,0,.292.487,3.3,3.3,0,0,0,.861.368,3.72,3.72,0,0,1,1.526.781,1.556,1.556,0,0,1,.479,1.162A1.433,1.433,0,0,1,4.388-2.97a2.56,2.56,0,0,1-1.575.44,3.041,3.041,0,0,1-1.251-.252A1.98,1.98,0,0,1,.7-3.471,1.765,1.765,0,0,1,.4-4.485H1.635q0,.986,1.178.986A1.146,1.146,0,0,0,3.5-3.677.579.579,0,0,0,3.742-4.174Z" transform="translate(509.712 1121.99)"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'save'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16">
+  <path class="color-icon-fill-primary" id="Path_2" data-name="Path 2" d="M2210.821,292.9h-10.632a1.844,1.844,0,0,0-1.789,1.789v12.421a1.844,1.844,0,0,0,1.789,1.79h12.421a1.845,1.845,0,0,0,1.79-1.79V296.479Zm-4.421,14.105a2.632,2.632,0,1,1,2.632-2.632A2.606,2.606,0,0,1,2206.4,307.005Zm2.632-8.842h-8.842v-3.579h8.842Z" transform="translate(-2198.4 -292.9)"/>
+</svg>
+<svg *ngIf="name === 'save-as'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 17.53 17.523">
+  <g class="color-icon-fill-primary" id="Group_1" data-name="Group 1" transform="translate(18238.293 23350.365)">
+    <path id="Path_8405" data-name="Path 8405" d="M2210.789,292.9h-10.6a1.84,1.84,0,0,0-1.785,1.785v12.389a1.84,1.84,0,0,0,1.785,1.785h12.389a1.84,1.84,0,0,0,1.785-1.785v-10.6h-3.57Zm-4.41,14.069a2.625,2.625,0,1,1,2.625-2.625A2.6,2.6,0,0,1,2206.379,306.969ZM2209,298.15h-8.819v-3.57H2209Z" transform="translate(-20436.693 -23641.701)"/>
+    <g id="Group_21496" data-name="Group 21496" transform="translate(-18227.111 -23349.865)">
+      <path id="Path_8401" data-name="Path 8401" d="M2557.583-587h3.8v3.942" transform="translate(-2555.531 587)" fill="none" class="color-icon-stroke-primary" stroke-linecap="round" stroke-width="1"/>
+      <line id="Line_710" data-name="Line 710" y1="5.185" x2="5.185" transform="translate(0 0.701)" fill="none" class="color-icon-stroke-primary" stroke-linecap="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
+<svg *ngIf="name === 'tick-circle'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16">
+  <g class="color-icon-fill-primary" id="Group_21458" data-name="Group 21458" transform="translate(16568 21579)">
+    <g id="Group_21456" data-name="Group 21456" transform="translate(-26069 -19005)">
+      <g id="Rectangle_5029" data-name="Rectangle 5029" transform="translate(9501 -2574)" class="color-icon-stroke-primary" stroke-width="1">
+        <rect width="16" height="16" rx="8" stroke="none"/>
+        <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" fill="none"/>
+      </g>
+    </g>
+    <path class="color-icon-stroke-secondary" id="Tick" d="M-145.433,1454.949l2.025,2.025,2.147-2.147,3.157-3.157" transform="translate(-16621.816 -23030.898) rotate(-8)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'new-window'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 13.091 16">
+  <g class="color-icon-fill-primary" id="Group_21498" data-name="Group 21498" transform="translate(16569.576 21169.498)">
+    <path id="Subtraction_19" data-name="Subtraction 19" d="M13.091,16H5.2V14.545h6.435V1.454H1.454v9.452H0V0H13.091V16Z" transform="translate(-16569.576 -21169.498)"/>
+    <path id="Path_8264" data-name="Path 8264" d="M2562.593-582.326h-1.461v-3.713h-3.549V-587.5h5.01Z" transform="translate(-19123.412 -20574.801)"/>
+    <path id="Line_630" data-name="Line 630" d="M.68,6.524-.354,5.491,5.491-.354,6.524.68Z" transform="translate(-16568.336 -21160.895)"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'burger-menu'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 18 14.838">
+  <g id="Group_21478" data-name="Group 21478" transform="translate(16048.5 21233.5)">
+    <line id="Line_698" data-name="Line 698" x2="16" transform="translate(-16047.5 -21219.662)" fill="none" class="color-icon-stroke-primary" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_699" data-name="Line 699" x2="16" transform="translate(-16047.5 -21226.082)" fill="none" class="color-icon-stroke-primary" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_700" data-name="Line 700" x2="16" transform="translate(-16047.5 -21232.5)" fill="none" class="color-icon-stroke-primary" stroke-linecap="round" stroke-width="2"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'email'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 12.8">
+  <path class="color-icon-fill-primary" id="Emai_Alerts" data-name="Emai Alerts" d="M71.6,4680H84.4a1.492,1.492,0,0,1,.64.161L78,4688.4l-7.04-8.24A1.492,1.492,0,0,1,71.6,4680ZM70,4691.2v-9.679l4.72,5.439-4.64,4.641A.6.6,0,0,1,70,4691.2Zm14.4,1.6H71.6a.6.6,0,0,1-.4-.08l4.56-4.56L78,4690.8l2.24-2.64,4.56,4.56A.6.6,0,0,1,84.4,4692.8Zm1.6-1.6a.723.723,0,0,1-.08.4l-4.64-4.64,4.72-5.44v9.679Z" transform="translate(-70 -4680)"/>
+</svg>
+<svg *ngIf="name === 'calendar'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16.062 17.133">
+  <path class="color-icon-fill-primary" id="Path_8369" data-name="Path 8369" d="M197.354,1094.425H199.5v2.142h-2.142Zm3.212,0h2.142v2.142h-2.142Zm3.212,0h2.142v2.142h-2.142Zm-9.637,6.425h2.142v2.141h-2.142Zm3.212,0H199.5v2.141h-2.142Zm3.212,0h2.142v2.141h-2.142Zm-3.212-3.213H199.5v2.141h-2.142Zm3.212,0h2.142v2.141h-2.142Zm3.212,0h2.142v2.141h-2.142Zm-9.637,0h2.142v2.141h-2.142ZM205.921,1088v1.071h-2.142V1088h-7.5v1.071h-2.142V1088H192v17.133h16.062V1088Zm1.071,16.063H193.071v-11.779h13.921Z" transform="translate(-192 -1088)"/>
+</svg>
+<svg *ngIf="name === 'play'" #icon xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 10 12">
+  <path class="color-icon-fill-primary" id="Polygon_14" data-name="Polygon 14" d="M6,0l6,10H0Z" transform="translate(10) rotate(90)"/>
+</svg>
+<svg *ngIf="name === 'zip'" #icon xmlns="http://www.w3.org/2000/svg" width="16" height="18.259" viewBox="0 0 16 18.259">
+  <g class="color-icon-fill-primary" id="Group_21461" data-name="Group 21461" transform="translate(-1020.001 -940)">
+    <path id="Path_8381" data-name="Path 8381" d="M2.6,5.8l9.37-.006,1.3.543,3.45,3.744v12.2l-.768.645L2.6,22.709l-1.043-.973.387-15.4Z" transform="translate(1018.659 935.014)" fill="#fff"/>
+    <path id="Zip" d="M1626.99,529.921h1.71v1.16h-1.71Zm-1.71,1.16h1.71v1.16h-1.71Zm1.71,1.16h1.71v1.16h-1.71Zm-1.71,1.1h1.71v1.16h-1.71Zm1.71,1.16h1.71v1.16h-1.71Zm-1.71,1.16h1.71v1.16h-1.71Zm1.71,1.16v1.16h-1.71v4.03a.547.547,0,0,0,.55.55h2.321a.547.547,0,0,0,.55-.55v-5.13h-1.71Zm1.1,4.58h-2.321v-1.16h2.321Zm7.572-10.2-2.565-2.565a4.017,4.017,0,0,0-2.443-1.038H1622.1a1.421,1.421,0,0,0-1.4,1.4v15.45a1.42,1.42,0,0,0,1.4,1.4H1635.3a1.42,1.42,0,0,0,1.4-1.4v-10.87A3.672,3.672,0,0,0,1635.661,531.2Zm-.794.794.183.183h-2.931v-2.931l.183.183Zm.672,12.519a.288.288,0,0,1-.305.305H1622.1a.288.288,0,0,1-.305-.305v-15.45a.288.288,0,0,1,.305-.305h8.916v4.58h4.58v11.175Z" transform="translate(-600.699 412.4)"/>
+  </g>
+</svg>
+<svg *ngIf="name === 'txt'" #icon xmlns="http://www.w3.org/2000/svg" width="32.001" height="36.938" viewBox="0 0 32.001 36.938">
+  <g class="color-icon-fill-primary color-icon-stroke-primary" id="Txt" transform="translate(0.001)">
+    <path id="Path_8379" data-name="Path 8379" d="M3.761,5.811,23.539,5.8l2.739,1.145,7.282,7.9V40.6l-1.62,1.361L3.761,41.494l-2.2-2.055.818-32.5Z" transform="translate(-1.561 -5.025)" class="color-icon-fill-secondary"/>
+    <path id="Path_1734" data-name="Path 1734" d="M1855.546,534.806l-5.13-5.13a8.032,8.032,0,0,0-4.885-2.076h-17.221a2.841,2.841,0,0,0-2.809,2.809v30.9a2.841,2.841,0,0,0,2.809,2.809h26.382a2.841,2.841,0,0,0,2.809-2.809V539.57A7.861,7.861,0,0,0,1855.546,534.806Zm-7.206-3.786.367.366,5.129,5.13.366.366h-5.862Zm6.962,30.412a.577.577,0,0,1-.611.611h-26.382a.577.577,0,0,1-.61-.611v-30.9a.577.577,0,0,1,.61-.611h17.832v9.16h9.16v22.351Z" transform="translate(-1825.5 -527.6)"/>
+    <g id="Group_439" data-name="Group 439" transform="translate(6.595 17.588)">
+      <rect id="Rectangle_194" data-name="Rectangle 194" width="14.046" height="2.687"/>
+      <rect id="Rectangle_195" data-name="Rectangle 195" width="18.809" height="2.687" transform="translate(0 4.886)"/>
+      <rect id="Rectangle_196" data-name="Rectangle 196" width="18.809" height="2.687" transform="translate(0 9.893)"/>
+    </g>
+  </g>
+</svg>
+<svg *ngIf="name === 'share-link'" #icon id="share-link" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path class="color-icon-fill-primary" id="Path_30123" data-name="Path 30123" d="M16.333,3a2.652,2.652,0,0,0-2.6,3.224L7.674,9.251a2.665,2.665,0,1,0,0,3.5l6.051,3.026a2.672,2.672,0,1,0,.6-1.193L8.273,11.557a2.562,2.562,0,0,0,0-1.113l6.055-3.027A2.665,2.665,0,1,0,16.333,3Z" transform="translate(-3 -3)" />
+</svg>
+<svg *ngIf="name === 'link-chain'" #icon id="link-chain" xmlns="http://www.w3.org/2000/svg" width="20.541" height="20.469" viewBox="0 0 20.541 20.469">
+  <path class="color-icon-fill-primary" id="Path_8265" data-name="Path 8265"
+  d="M851.065,2817.482l-.064-.064a4.912,4.912,0,0,0-6.855,0l-4.357,4.356a4.912,4.912,0,0,0,0,6.855l.064.064a3.727,3.727,0,0,0,.513.448l1.6-1.6a3.545,3.545,0,0,1-.512-.385l-.064-.064a2.63,2.63,0,0,1,0-3.716l4.357-4.356a2.631,2.631,0,0,1,3.716,0l.064.064a2.629,2.629,0,0,1,0,3.716l-1.986,1.986a7.371,7.371,0,0,1,.513,2.627l3.075-3.075A4.975,4.975,0,0,0,851.065,2817.482Zm-6.471,6.342a3.667,3.667,0,0,0-.512-.448l-1.6,1.6a3.56,3.56,0,0,1,.513.385l.064.064a2.629,2.629,0,0,1,0,3.716L838.7,2833.5a2.629,2.629,0,0,1-3.716,0l-.064-.064a2.629,2.629,0,0,1,0-3.716l1.986-1.986a7.376,7.376,0,0,1-.512-2.627l-3.075,3.075a4.912,4.912,0,0,0,0,6.855l.064.064a4.912,4.912,0,0,0,6.855,0l4.356-4.356a4.912,4.912,0,0,0,0-6.855Z"
+  transform="translate(-831.925 -2816.025)" />
+</svg>
+<svg *ngIf="name === 'sliders'" #icon xmlns="http://www.w3.org/2000/svg" width="18" height="17.652" viewBox="0 0 18 17.652">
+  <g id="Group_21078" data-name="Group 21078" transform="translate(-93.202 -71.31)">
+    <line id="Line_619" data-name="Line 619" y2="5.565" transform="translate(95.941 72.31)" fill="none" class="color-icon-stroke-primary" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_620" data-name="Line 620" y2="7.652" transform="translate(108.463 72.31)" fill="none" class="color-icon-stroke-primary" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_621" data-name="Line 621" y2="7.652" transform="translate(102.202 79.962)" fill="none" class="color-icon-stroke-primary" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_622" data-name="Line 622" y2="5.913" transform="translate(95.941 81.701)" fill="none" class="color-icon-stroke-primary" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_623" data-name="Line 623" y2="2.783" transform="translate(102.202 72.31)" fill="none" class="color-icon-stroke-primary" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_624" data-name="Line 624" y2="2.783" transform="translate(108.463 87.962) rotate(180)" fill="none" class="color-icon-stroke-primary" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_625" data-name="Line 625" x1="3.478" transform="translate(100.463 75.788)" fill="none" class="color-icon-stroke-primary" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_626" data-name="Line 626" x1="3.478" transform="translate(110.202 84.483) rotate(180)" fill="none" class="color-icon-stroke-primary" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_627" data-name="Line 627" x1="3.539" transform="translate(94.202 81.6)" fill="none" class="color-icon-stroke-primary" stroke-linecap="round" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,65 @@
+@import "libs/styling/src/lib/variables";
+
+.icon-container {
+  &--filter-active {
+    margin-top: -2px;
+  }
+
+  ~ svg {
+    display: none;
+  }
+}
+
+.color-icon-fill-primary {
+  fill: var(--color-icon-fill-primary);
+}
+
+.color-icon-fill-secondary {
+  fill: var(--color-icon-fill-secondary);
+}
+
+.color-icon-fill-tertiary {
+  fill: var(--color-icon-fill-tertiary);
+}
+
+.color-icon-stroke-primary {
+  stroke: var(--color-icon-stroke-primary);
+}
+
+.color-icon-stroke-secondary {
+  stroke: var(--color-icon-stroke-secondary);
+}
+
+.color-icon-background-primary {
+  background-color: var(--color-icon-background-primary);
+}
+
+.chevron--right {
+  transition: transform $transition-time;
+  transform: rotate(90deg);
+}
+
+.chevron--down {
+  transition: transform $transition-time;
+  transform: rotate(180deg);
+}
+
+.chevron--left {
+  transition: transform $transition-time;
+  transform: rotate(270deg);
+}
+
+.chevron-circle--up {
+  transition: transform $transition-time;
+  transform: rotate(-90deg);
+}
+
+.chevron-circle--down {
+  transition: transform $transition-time;
+  transform: rotate(90deg);
+}
+
+.chevron-circle--left {
+  transition: transform $transition-time;
+  transform: rotate(180deg);
+}
